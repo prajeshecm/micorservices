@@ -7,21 +7,40 @@
 
     <groupId>com.hla.loan</groupId>
     <artifactId>hla-parent-pom</artifactId>
-    <name>${project.artifactId} - loan Parent Pom</name>
+    <name>loan Parent Pom</name>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
 
     <modules>
         <module>customer-validation</module>
         <module>customer-process</module>
-        <module>customer-notify</module>  <!-- this module name has to match with the child project (project folder name).-->
+        <module>customer-notify</module>
+        <!-- this module name has to match with the child project (project folder name).-->
     </modules>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>15</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>spring-repo</id>
+            <name>Spring Repository</name>
+            <url>https://repo.spring.io/release</url>
+        </repository>
+        <repository>
+            <id>confluent</id>
+            <url>https://packages.confluent.io/maven/</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>confluent</id>
+            <url>https://packages.confluent.io/maven/</url>
+        </pluginRepository>
+    </pluginRepositories>
 
     <dependencyManagement>
         <dependencies>
@@ -35,6 +54,9 @@
                     <artifactId>spring-boot-starter-web</artifactId>
                     <version>${spring-boot.version}</version>
                 </dependency>
+
+
+
         </dependencies>
     </dependencyManagement>
 </project>
