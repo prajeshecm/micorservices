@@ -1,10 +1,15 @@
 package com.hla.loan.validate.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.io.Serializable;
 import java.util.Date;
 
-public class Customer implements Serializable {
+@Document("customerRank")
+public class CustomerRank implements Serializable {
 
+    @Id
     private long customerId ;
 
     private String customerName ;

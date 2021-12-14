@@ -4,29 +4,29 @@
 Purpose :
 
 	HLA ( Housing Loan Application ) Is an app 
-	which helps customer to identify whether customer is eligible for housing loan 
+	which helps customerRank to identify whether customerRank is eligible for housing loan 
 	And if eligible what will be the rate of interest 
-	And the customer who is eligible ( or not )  for housing loan will also get an email to agree and next step in the process.
+	And the customerRank who is eligible ( or not )  for housing loan will also get an email to agree and next step in the process.
 
 Use case :
 
 	//Scenario 1 :  Success scenario 
-		Given a customer in SSN background with good score
-		And customer with details
+		Given a customerRank in SSN background with good score
+		And customerRank with details
 		When I trigger HLA
-		Then customer has to validate against SSN team
-		And if eligible customer 
+		Then customerRank has to validate against SSN team
+		And if eligible customerRank 
 		And custom details has to send to notification team
-		And email has to send to customer with rate and other details
+		And email has to send to customerRank with rate and other details
 	
 	//Scenario 2 :  Failure scenario 
-		Given a customer in SSN background with negative mark
-		And customer with details
+		Given a customerRank in SSN background with negative mark
+		And customerRank with details
 		When I trigger HLA
-		Then customer has to validate against SSN team
-		And customer details has to save in customer data
+		Then customerRank has to validate against SSN team
+		And customerRank details has to save in customerRank data
 		And custom details has to send to notification team
-		And email has to send to customer with not approved.
+		And email has to send to customerRank with not approved.
 	
 	//Scenario 3 : 
 
