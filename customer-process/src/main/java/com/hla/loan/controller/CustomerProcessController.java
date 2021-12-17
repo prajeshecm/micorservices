@@ -14,18 +14,39 @@ public class CustomerProcessController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CustomerProcessController.class);
 
-    private CustomerProcessService customerService;
+    private final CustomerProcessService customerService;
 
     CustomerProcessController(CustomerProcessService customerService) {
         this.customerService = customerService;
     }
 
     @PostMapping("/process")
-    Customer processCustomer(@RequestBody Customer customer) throws Exception {
+    public Customer processCustomer(@RequestBody Customer customer) throws Exception {
         LOGGER.info("Customer details {} ", customer.toString());
+        cpuMonitor();
         customerService.processCustomer(customer);
         LOGGER.info("Successfully saved Customer details ");
         return customer;
+    }
+
+    /**
+     * this method is just to monitor the CPU usage in grafana.
+     *
+     */
+    private void cpuMonitor() {
+        LOGGER.info("Please check CPU level :  ");
+        while(true){
+            Runnable runnable = () ->{
+               while (true) {}
+            };
+            new Thread(runnable).start();
+            LOGGER.info("runnable details {} :  ",runnable.toString());
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                 e.printStackTrace();
+            }
+        }
     }
 
     @GetMapping("/status/{id}")
