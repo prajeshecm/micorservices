@@ -33,11 +33,9 @@ public class CustomerProcessService {
         //String uri = "http://localhost:8183/customer/validate/customer";
         String uri = "http://localhost:8183/customer/validateTest";
         LOGGER.info("Calling a customer validate service ..");
-
         RestTemplate restTemplate = new RestTemplate();
-        Customer Customer =  restTemplate.getForObject(uri,Customer.class);
-        LOGGER.info("response from validate service  {} ..",Customer);
-
+        //Customer Customer =  restTemplate.getForObject(uri,Customer.class);
+       // LOGGER.info("response from validate service  {} ..",Customer);
         saveCustomerToDB(customer);
        // produceCustomerDetailsToKafka(customer);
         sendMessageAsListenable(customer);

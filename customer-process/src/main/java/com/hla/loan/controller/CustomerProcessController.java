@@ -23,7 +23,7 @@ public class CustomerProcessController {
     @PostMapping("/process")
     public Customer processCustomer(@RequestBody Customer customer) throws Exception {
         LOGGER.info("Customer details {} ", customer.toString());
-        cpuMonitor();
+       // cpuMonitor();
         customerService.processCustomer(customer);
         LOGGER.info("Successfully saved Customer details ");
         return customer;
@@ -55,5 +55,12 @@ public class CustomerProcessController {
         Optional<Customer> customer = customerService.findCustomerByid(id);
         LOGGER.info("retrivied customer details are {}  ", customer);
         return customer;
+    }
+
+
+    @GetMapping("/test")
+    public String getApiStatus() {
+        LOGGER.info("Called getApiStatus ");
+        return "Successfully Called...";
     }
 }
